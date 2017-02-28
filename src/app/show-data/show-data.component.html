@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <button (click)="onLogOutPage()" class="btn btn-danger  btn-md pull-right">logOut</button>
+</div>
+
+
+<div class="row top-buffer">
+  <div *ngFor="let item of items | async">
+    <div class="col-sm-5 col-md-5 col-lg-2  col-lg-offset-1">
+      <div class="card">
+        <div class="center">
+          <img class="card-img-top" src="{{item.image.small}}" width="150px" height="170px" alt="Card image cap" />
+          <div class="card-block">
+            <h2 class="card-title label label-primary">{{item.name}}</h2>
+            <p class="card-text">{{item.description}}</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-info btn-md  center-block" data-toggle="modal" data-target="#myModal" (click)=info(item)>More Info</button>
+
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{manufacturer}}</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-9 ">
+                    <h3><i>{{mobileName}}</i></h3>
+                    <div class="row">
+                      <div class="col-8 col-sm-6">
+                        <img src="{{moLarge}}" width="100%" height="200px" />
+                      </div>
+                      <div class="col-4 col-sm-6">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Features</th>
+                              <th>Specification</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Camera</td>
+                              <td>{{camera}}</td>
+                            </tr>
+                            <tr class="success">
+                              <td>Company</td>
+                              <td>{{manufacturer}}</td>
+                            </tr>
+                            <tr class="danger">
+                              <td>storage</td>
+                              <td>{{storage}}</td>
+                            </tr>
+                            <tr class="info">
+                              <td>Operating System</td>
+                              <td>{{operatingSystem}}</td>
+                            </tr>
+                            <tr class="warning">
+                              <td>Price</td>
+                              <td>{{price}}</td>
+                            </tr>
+                            <tr class="active">
+                              <td>Rating</td>
+                              <td>{{rating}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

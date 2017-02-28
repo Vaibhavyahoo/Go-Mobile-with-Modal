@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-inverse navbar-fixed">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Mobile App</a>
+    </div>
+  <button type="button" class="btn btn-success"><span routerLink="/SignIn"> Sign In	</span></button>
+  <button type="button" class="btn btn-info">	<span routerLink="/SignUp"> Sign Up	</span></button>
+  <button type="button" class="btn btn-info">	<span routerLink="/Myapp">My App</span></button>
+</div>
+</nav>
+<router-outlet></router-outlet>
+<!-- <app-show-data></app-show-data> -->

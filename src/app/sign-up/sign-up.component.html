@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <form [formGroup]="myForm" (ngSubmit)="onSignup()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" placeholder="Your full name" class="form-control" formControlName="username">
+      <div class="error" *ngIf="myForm.get('username').hasError('required') && myForm.get('username').touched" class="text-danger">
+        Name is required
+      </div>
+      <div class="error" *ngIf="myForm.get('username').hasError('minlength') && myForm.get('username').touched" class="text-danger">
+        Minimum of 2 characters
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">E-Mail</label>
+      <input formControlName="email" placeholder="Your valid email" type="email" id="email" #email class="form-control">
+      <div class="error" *ngIf="myForm.get('email').hasError('required') && myForm.get('email').touched" class="text-danger">
+        Email is required
+      </div>
+      <div class="error" *ngIf="myForm.get('email').hasError('pattern') && myForm.get('email').touched" class="text-danger">
+        Email is invalid ex:you@gmail.com
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" type="password" id="password" class="form-control">
+      <div class="error" *ngIf="myForm.get('password').hasError('required') && myForm.get('password').touched" class="text-danger" class="alert alert-danger">
+        Password is required
+      </div>
+    </div>
+    <div class="radio" *ngFor="let g of genders">
+      <label>
+      <input type="radio" formControlName="gender" [value]="g">
+      {{g}}
+        </label>
+    </div>
+    <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
